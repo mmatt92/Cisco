@@ -1,18 +1,12 @@
-<h1>Cisco Packet Tracer Download and Install</h1>
+<h1>Cisco Packet Tracer Switch Configuration w/VLAN</h1>
 
 
 
 <h2>Description</h2>
+In this lab I show the process of configuring a basic switch using commands in Cisco Packet Tracer to connect and seperate a small network using VLAN (Virtual Local Area Network).
 
-Cisco Packet Tracer as the name suggests, is a tool built by Cisco. This tool provides a network simulation to practice simple and complex networks. 
+ 
 
-The main purpose of Cisco Packet Tracer is to help students learn the principles of networking with hands-on experience as well as develop Cisco technology specific skills. Since the protocols are implemented in software only method, this tool cannot replace the hardware Routers or Switches. Interestingly, this tool does not only include Cisco products but also many more networking devices.
-
-Using this tool is widely encouraged as it is part of the curriculum like CCNA, CCENT where Faculties use Packet Trace to demonstrate technical concepts and networking systems. Students complete assignments using this tool, working on their own or in teams.
-
-Engineers prefer to test any protocols on Cisco Packet Tracer before implementing them. Also, Engineers who would like to deploy any change in the production network prefer to use Cisco Packet Tracer to first test the required changes and proceed to deploy if and only if everything is working as expected.
-
-This makes the job easier for Engineers allowing them to add or remove simulated network devices, with a Command line interface and a drag and drop user interface.
 <br />
 
 
@@ -25,41 +19,103 @@ This makes the job easier for Engineers allowing them to add or remove simulated
 
 - <b>Windows 11</b> 
 
-<h2>Download walk-through:</h2>
+<h2>VLAN Network</h2>
 
 <p align="center">
-Navigate to Cisco Networking Academy: <br/>
-<img src="https://i.imgur.com/Tm4fxCy.png" height="80%" width="80%" alt="Download from the browser"/>
+Open Packet Tracer: <br/>
+<img src="https://imgur.com/QryW3Sk.png" height="80%" width="80%" alt="Open packet Tracer"/>
 <br />
 <br />
-Login or Create Account:  <br/>
-<img src="https://imgur.com/Hl0EF5d.png" height="80%" width="80%" alt="Login or Create Account"/>
+Choose (Network Devices) and then click and drag a 2960 switch into work area:  <br/>
+<img src="https://imgur.com/EtlKK1N.png" height="80%" width="80%" alt="Select the swtches icon"/>
 <br />
 <br />
-After Login Choose Course: <br/>
-<img src="https://imgur.com/blBjv0K.png" height="80%" width="80%" alt="After Login Choose Course"/>
+Next select the (End Devices) Icon and click and drag two PCs into work area : <br/>
+<img src="https://imgur.com/BAolBoj.png" height="80%" width="80%" alt="Next select the End Devices Icon"/>
 <br />
 <br />
-Follow Prompts On Screen:  <br/>
-<img src="https://imgur.com/kBianpW.png" height="80%" width="80%" alt="Follow Prompts on Screen"/>
-<img src="https://imgur.com/ePym1mv.png" height="80%" width="80%" alt="Follow Prompts on Screen"/>
-<img src="https://imgur.com/u6Gyvhb.png" height="80%" width="80%" alt="Follow Prompts on Screen"/>
- <br />
-<br />
-Agree to License and Select Default Selected For All Other Popups Then Install and Finish:  <br/>
-<img src="https://imgur.com/OajaVHO.png" height="80%" width="80%" alt="Agree to Liicense and Select Default Selected for all other Popups Then Install"/>
-<img src="https://imgur.com/z0IOJMN.png" height="80%" width="80%" alt="Agree to Liicense and Select Default Selected for all other Popups Then Install"/>
-<img src="https://imgur.com/N3TBtAW.png" height="80%" width="80%" alt="Agree to Liicense and Select Default Selected for all other Popups Then Install"/>
-<img src="https://imgur.com/BAlWoI7.png" height="80%" width="80%" alt="Agree to Liicense and Select Default Selected for all other Popups Then Install"/>
+Now to connect the components select the (Connections) icon and the (Copper Straight-Through). On PC0 connect to FastEthernet0:  <br/>
+<img src="https://imgur.com/6mfySWA.png" height="80%" width="80%" alt="Follow Prompts on Screen"/>
 <br />
 <br />
-Congratulations! Your Installation Is Complete:  <br/>
-<img src="https://imgur.com/SEQkcq4.png" height="80%" width="80%" alt="Congratulations! Your Installation is Complete"/>
+Connect PC0 to the 2960 switch on FastEthernet0/1:  <br/>
+<img src="https://imgur.com/KdKbzdI.png" height="80%" width="80%" alt="Connect PC0 to the 2960 switch on FastEthernet0/1"/>
 <br />
 <br />
-Now You Can Configure Your Very Own Virtual Networks:  <br/>
-<img src="https://imgur.com/w9tZlEN.png" height="80%" width="80%" alt="Now You Can Configure Your Virtual Networks"/>
-<img src="https://imgur.com/Eme1Kwd.png" height="80%" width="80%" alt="Now You Can Configure Your Virtual Networks"/>
+Select (Connections), (Copper Straight-Through), and connect to FastEthernet0 on PC1:  <br/>
+<img src="https://imgur.com/iLoqIzl.png" height="80%" width="80%" alt="Congratulations! Your Installation is Complete"/>
+<br />
+<br />
+Connect to the 2960 switch on FastEthernet0/2:  <br/>
+<img src="https://imgur.com/wqxARDd.png" height="80%" width="80%" alt="Connect to the 2960 switch on FastEthernet0/2"/>
+<br />
+<br />
+Now to assign IP addresses. Select PC0, Config, FastEthernet0, and enter "192.168.10.1" into the IPV4:  <br/>
+<img src="https://imgur.com/IyRLjDe.png" height="80%" width="80%" alt="Now to assign IP addresses"/>
+<br />
+<br />
+Next assign the address for PC1. Select PC1, Config, FastEthernet0, and enter "192.168.10.2" into the IPV4 :  <br/>
+<img src="https://imgur.com/f5Ki2pQ.png" height="80%" width="80%" alt="Next assign the address for PC1"/>
+<br />
+<br />
+Test connectivity between PC0 and PC1. Enter PC0, Desktop, Command Prompt, and type "ping 192.168.10.2" enter. The PCs show connectivity because they currently connected on the same VLAN1:  <br/>
+<img src="https://imgur.com/0NCyUn2.png" height="80%" width="80%" alt="Test connectivity between PC0 and PC1"/>
+<br />
+<br />
+Now select the 2960 switch and notice on how the description shows the physical ports on the back of the switch. PC0 is connected to Port 1 and PC1 is connected to Port 2:  <br/>
+<img src="https://imgur.com/J8aOYKY.png" height="80%" width="80%" alt="Now select the 2960 "/>
+<br />
+<br />
+Next select the CLI and notice the connection that has been established on FastEthernet0/1 (PC0) and FastEthernet0/2 (PC1):  <br/>
+<img src="https://imgur.com/rb9g8Xp.png" height="80%" width="80%" alt="Next select the CLI and notice the connection"/>
+<br />
+<br />
+Now to look at current VLAN configuration. Type, enter, enter, "en", enter, "show vlan", enter. VLAN1 is the default and currently has all available ports (1-24) within that network:  <br/>
+<img src="https://imgur.com/OzxVlO9.png" height="80%" width="80%" alt="Now to look at current VLAN configuration"/>
+<br />
+<br />
+Next select the CLI and notice the connection that has been established on FastEthernet0/1 (PC0) and FastEthernet0/2 (PC1):  <br/>
+<img src="https://imgur.com/rb9g8Xp.png" height="80%" width="80%" alt="Next select the CLI and notice the connection"/>
+<br />
+<br />
+Rename the switch. Type enter, "configure terminal", enter, "hostname S1", enter:  <br/>
+<img src="https://imgur.com/ga79O1b.png" height="80%" width="80%" alt="Rename the switch"/>
+<br />
+<br />
+Now to configure the additional VLANs. Type "configure terminal", enter, "vlan 2", enter, "name sales", enter:  <br/>
+<img src="https://imgur.com/rgY3Cmb.png" height="80%" width="80%" alt="Now to configure the additional VLANs"/>
+<br />
+<br />
+Next type "exit", enter, "vlan 3", enter, "name parts", enter:  <br/>
+<img src="https://imgur.com/ZBwd1zb.png" height="80%" width="80%" alt="vlan 3"/>
+<br />
+<br />
+Verify VLANs have been created. Type "do show vlan", enter. :  <br/>
+<img src="https://imgur.com/Bec9z0x.png" height="80%" width="80%" alt="Verify VLANs have been created"/>
+<br />
+<br />
+Now to begin the process of seperating the two PCs onto different VLANs. Type "en", enter, "configure terminal", enter, "interface f0/1", enter, "switchport mode access", enter:  <br/>
+<img src="https://imgur.com/FNzVzAv.png" height="80%" width="80%" alt="Now to begin the process of seperating the two PCs"/>
+<br />
+<br />
+Next type "switchport access vlan 2", enter:  <br/>
+<img src="https://imgur.com/3j5fDuQ.png" height="80%" width="80%" alt="switchport access vlan 2"/>
+<br />
+<br />
+To verify the port was reassigned type "exit", enter, "exit", enter, "show vlan", enter. Notice now that port f0/1 has been moved to VLAN 2 Sales:  <br/>
+<img src="https://imgur.com/gFWGws2.png" height="80%" width="80%" alt="verify the port was reassigned type"/>
+<br />
+<br />
+Next move port g0/2 (f0/2 in switch) to VLAN 3. Type enter, "en", enter, "configure terminal", enter, "interface f0/2", enter, "switchport mode access", enter, "switchport access vlan 3", enter :  <br/>
+<img src="https://imgur.com/HgqZqv4.png" height="80%" width="80%" alt="Next move port g0/2 (f0/2 in switch) to VLAN 3"/>
+<br />
+<br />
+Verify again. Type "do show vlan", enter. We can see that port f0/2 has been moved to VLAN 3 Parts:  <br/>
+<img src="https://imgur.com/8xmjQYB.png" height="80%" width="80%" alt="Verify again"/>
+<br />
+<br />
+Back in PC0 Command Prompt. If we try to "ping 192.168.10.2" PC1 now, it cannot be reached because the PCs are seperated into different VLANs :  <br/>
+<img src="https://imgur.com/RSZqGx7.png" height="80%" width="80%" alt="Verify again"/>
 <br />
 <br />
 End of lab:
